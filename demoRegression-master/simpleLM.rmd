@@ -80,7 +80,7 @@ This model length based on headlen based on leadlen is way better than length ba
 headwthModel <- lm(LENGTH~HEADWTH,data=bears)
 plot(LENGTH~HEADWTH,data=bears)
 abline(headwthModel)
-summary.lm(headWthModel)    
+summary.lm(headwthModel)    
 ```
 This model is not better than the model headlen because the r^2 for headwith is lower (0.53) and the headlen was (0.84)which is higher 
 
