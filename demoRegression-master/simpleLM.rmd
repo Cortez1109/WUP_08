@@ -1,7 +1,7 @@
 ---
-title: "simpleRegress"
-author: "put your name here"
-date: "Fall 2020"
+title: "Simple Regress"
+author: "Claudia Cortez"
+date: "Summer 2024"
 output: html_document
 ---
 
@@ -26,7 +26,67 @@ plot(LENGTH~NECK,data=bears)
 abline(simp)
 summary.lm(simp)
 ```
+For model length ~ neck,agrested r^2=0.75
+
+```{r}
+ageModel <- lm(LENGTH~AGE,data=bears)
+plot(LENGTH~AGE,data=bears)
+abline(ageModel)
+summary.lm(ageModel)    
+```
+  adjuste r^2 for the age model is 0.51, this is less than the adjuste r^2 for neck, so this model is not as good as the neck model 
+
+## length based on chest
+
+```{r}
+chestModel <- lm(LENGTH~CHEST,data=bears)
+plot(LENGTH~CHEST,data=bears)
+abline(chestModel)
+summary.lm(chestModel)    
+```
+  The model length based on chest is better than adjusted $r^2$ for the age model (0.51)and adjested r^2 for neck model (0.75),because r^2 for chest is (0.79). 
 
 
-## Compare all models that predict LENGTH other than NECK. Then order them from worst to best by its value of Adjusted-Rsquared (bigger is better), or by RSE (residual standard error) where smaller is better. 
+### length based on weight 
+```{r}
+weightModel <- lm(LENGTH~WEIGHT,data=bears)
+plot(LENGTH~WEIGHT,data=bears)
+abline(weightModel)
+summary.lm(weightModel)    
+```
+  The model length based weight is not as good as the model - length based on chest because the adjusted r-squared for length based on weight is lower (0.74) than the adjuested r-squared for chest (0.79).
+
+### length based on sex 
+```{r}
+sexModel <- lm(LENGTH~SEX,data=bears)
+plot(LENGTH~SEX,data=bears)
+summary.lm(sexModel)    
+```
+  This model is not better than the chest model beause the rsqure for length based on sex is (-0.0) this means its lower than chest r-squared (0.79).
+
+### length based on headlen
+```{r}
+headlenModel <- lm(LENGTH~HEADLEN,data=bears)
+plot(LENGTH~HEADLEN,data=bears)
+abline(headlenModel)
+summary.lm(headlenModel)    
+```
+This model length based on headlen based on leadlen is way better than length based on chest becasue the r-squared for chest is (0.78)and whish is lower than the r-squard for headlen which was (0.84).  
+
+
+
+### length based on headwth
+```{r}
+headwthModel <- lm(LENGTH~HEADWTH,data=bears)
+plot(LENGTH~HEADWTH,data=bears)
+abline(headwthModel)
+summary.lm(headWthModel)    
+```
+This model is not better than the model headlen because the r^2 for headwith is lower (0.53) and the headlen was (0.84)which is higher 
+
+### Conclusion 
+The greates model value was lenght~ Headlen the rquare was 0.84. 
+ 
+
+## Compare all models  that predict LENGTH other than NECK. Then order them from worst to best by its value of Adjusted-Rsquared (bigger is better), by RSE (residual standard error) where smaller is better. 
 
